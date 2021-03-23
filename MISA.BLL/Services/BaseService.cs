@@ -32,7 +32,7 @@ namespace MISA.BLL
         /// Created By: TXTrinh (20/02/2021)
         public virtual IEnumerable<MISAEntity> Get()
         {
-            var sqlCommand = $"Proc_Get{_tableName}s";
+            var sqlCommand = $"Proc_GetAll{_tableName}";
             return dbconnection.GetData(sqlCommand, null, System.Data.CommandType.StoredProcedure);
         }
 
@@ -42,23 +42,10 @@ namespace MISA.BLL
         /// <param name="Id">Id của bản ghi</param>
         /// <returns>Bản ghi cần tìm</returns>
         /// Created By: TXTrinh (20/02/2021)
-        public virtual IEnumerable<MISAEntity> GetById(Guid Id)
+        public virtual IEnumerable<MISAEntity> GetById(int Id)
         {
             var sqlCommand = $"Proc_Get{_tableName}ById";
             return dbconnection.GetData(sqlCommand, parameters: new {Id = Id }, System.Data.CommandType.StoredProcedure);
-        }
-
-        /// <summary>
-        /// Lấy danh sách bản ghi theo khoảng
-        /// </summary>
-        /// <param name="startPoint">Thứ tự bản ghi đầu tiên</param>
-        /// <param name="number">Số lượng bản ghi cần lấy</param>
-        /// <returns>Danh sách bả ghi cần lấy</returns>
-        /// Created By: TXTrinh (20/02/2021)
-        public virtual IEnumerable<MISAEntity> GetWithRange(int startPoint, int number)
-        {
-            var sqlCommand = $"SELECT * FROM View_{_tableName}  ORDER BY {_tableName}Code ASC LIMIT {startPoint}, {number}";
-            return dbconnection.GetData(sqlCommand, null, System.Data.CommandType.Text);
         }
 
         /// <summary>
@@ -99,7 +86,7 @@ namespace MISA.BLL
         /// Created By: TXTrinh (20/02/2021)
         public virtual ServiceResult Update(MISAEntity entity)
         {
-            var sqlCommand = $"Proc_Update{_tableName}";
+            var sqlCommand = $"Proc_Update{_tableName}ByID";
             var rowsAffected = dbconnection.ExcuteNonQuery(sqlCommand, entity, System.Data.CommandType.StoredProcedure);
             if (rowsAffected > 0)
             {
@@ -122,9 +109,9 @@ namespace MISA.BLL
         /// <param name="Id">Id của bản ghi cần xóa</param>
         /// <returns>Số lượng bản ghi ảnh hưởng</returns>
         /// Created By: TXTrinh (20/02/2021)
-        public virtual ServiceResult Delete(Guid Id)
+        public virtual ServiceResult Delete(int Id)
         {
-            var sqlCommand = $"Proc_Delete{_tableName}";
+            var sqlCommand = $"Proc_Delete{_tableName}ByID";
             var rowsAffected = dbconnection.ExcuteNonQuery(sqlCommand, parameters: new { Id = Id }, System.Data.CommandType.StoredProcedure);
             if (rowsAffected > 0)
             {
@@ -155,9 +142,6 @@ namespace MISA.BLL
                 var propertyName = property.Name;
                 var propertyValue = property.GetValue(entity);
 
-                if ((property.PropertyType == typeof(Guid) || property.PropertyType == typeof(Guid?)) && propertyName == $"{_tableName}Id" && isNewGui)
-                    property.SetValue(entity, Guid.NewGuid());
-
                 //Nếu property có attribute [Required] thì kiểm tra bắt buộc nhập
                 if (property.IsDefined(typeof(Required), true)
                     && (propertyValue == null || propertyValue.ToString().Trim() == String.Empty))
@@ -177,7 +161,7 @@ namespace MISA.BLL
                     if (dupliactedAttr != null)
                     {
                         var errMsg = (dupliactedAttr as Duplicated).errorMsg;
-                        var sqlCommand = $"SELECT {propertyName} FROM {_tableName} WHERE {propertyName} = '{propertyValue}'";
+                        var sqlCommand = $"SELECT {propertyName} FROM {_tableName}s WHERE {propertyName} = '{propertyValue}'";
                         var obj = dbconnection.GetData(sqlCommand, null, System.Data.CommandType.Text).FirstOrDefault();
                         if (obj != null)
                         {

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MISA.Common.Interfaces
 {
-    public interface IShopService: IBaseService<Shop>
+    public interface IProductService: IBaseService<Product>
     {
         
     }

@@ -120,11 +120,11 @@
   <data name="PhoneNumber" xml:space="preserve">
     <value>Số điện thoại</value>
   </data>
-  <data name="ShopCode" xml:space="preserve">
-    <value>Mã cửa hàng</value>
+  <data name="ProductCode" xml:space="preserve">
+    <value>Mã hàng hóa</value>
   </data>
-  <data name="ShopName" xml:space="preserve">
-    <value>Tên cửa hàng</value>
+  <data name="ProductName" xml:space="preserve">
+    <value>Tên hàng hóa</value>
   </data>
   <data name="USerMsg_BadRequest" xml:space="preserve">
     <value>Vui lòng kiểm tra lại dữ liệu!</value>
@@ -135,11 +135,8 @@
   <data name="UserMsg_Delete_Success" xml:space="preserve">
     <value>Xóa dữ liệu thành công!</value>
   </data>
-  <data name="UserMsg_Duplicate_PhoneNumber" xml:space="preserve">
-    <value>Số điện thoại đã tồn tại!</value>
-  </data>
-  <data name="UserMsg_Duplicate_ShopCode" xml:space="preserve">
-    <value>Mã khách hàng đã tồn tại!</value>
+  <data name="UserMsg_Duplicate_SKUCode" xml:space="preserve">
+    <value>Mã SKU đã tồn tại!</value>
   </data>
   <data name="UserMsg_Exception" xml:space="preserve">
     <value>Có lỗi xảy ra vui lòng liên hệ MISA!</value>
@@ -151,14 +148,11 @@
   <data name="UserMsg_Insert_Success" xml:space="preserve">
     <value>Không có bản ghi nào được thêm mới!</value>
   </data>
-  <data name="UserMsg_Require_PhoneNumber" xml:space="preserve">
-    <value>Số điện thoại không được để trống!</value>
+  <data name="UserMsg_Require_ProductName" xml:space="preserve">
+    <value>Tên hàng hóa không được để trống!</value>
   </data>
-  <data name="UserMsg_Require_ShopCode" xml:space="preserve">
-    <value>Mã cửa hàng không được để trống!</value>
-  </data>
-  <data name="UserMsg_Require_ShopName" xml:space="preserve">
-    <value>Tên cửa hàng không được để trống!</value>
+  <data name="UserMsg_Require_SKUCode" xml:space="preserve">
+    <value>Mã SKU không được để trống!</value>
   </data>
   <data name="UserMsg_Update_Fail" xml:space="preserve">
     <value>Sửa dữ liệu thất bại!</value>

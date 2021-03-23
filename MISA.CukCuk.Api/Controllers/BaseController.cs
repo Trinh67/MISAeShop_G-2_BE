@@ -46,24 +46,9 @@ namespace MISA.CukCuk.Api.Controllers
         /// CreatedBy: TXTrinh (20/02/2021)
         [HttpGet]
         [Route("{id}")]
-        public virtual IEnumerable<MISAEnity> GetById(Guid id)
+        public virtual IEnumerable<MISAEnity> GetById(int id)
         {
             return _baseService.GetById(id);
-        }
-
-        /// <summary>
-        /// Lấy số lượng bản ghi theo khoảng
-        /// </summary>
-        /// <param name="startPoint">Bản ghi bắt đầu</param>
-        /// <param name="number">Số lượng bản ghi cần lấy</param>
-        /// <returns>List các bản ghi</returns>
-        /// CreatedBy: TXTrinh (20/02/2021)
-        [HttpGet]
-        [Route("GetWithRange")]
-        public virtual IEnumerable<MISAEnity> GetWithRange(int startPoint, int number)
-        {
-            return _baseService.GetWithRange(startPoint, number);
-
         }
 
         /// <summary>
@@ -100,7 +85,7 @@ namespace MISA.CukCuk.Api.Controllers
         /// <returns>Kết quả sau khi xóa</returns>
         /// CreatedBy: TXTrinh (20/02/2021)
         [HttpDelete]
-        public virtual IActionResult Delete(Guid id)
+        public virtual IActionResult Delete(int id)
         {
             var serviceResult = _baseService.Delete(id);
             return StatusCode(serviceResult.MISACode, serviceResult);

@@ -19,14 +19,7 @@ namespace MISA.Common.Interfaces
         /// </summary>
         /// <returns>Trả về danh sách các đối tượng</returns>
         /// CreatedBy: TXTrinh (19/02/2021)
-        IEnumerable<MISAEntity> GetById(Guid Id);
-
-        /// <summary>
-        /// Lấy dữ liệu các bản ghi trong database
-        /// </summary>
-        /// <returns>Trả về danh sách các đối tượng</returns>
-        /// CreatedBy: TXTrinh (19/02/2021)
-        IEnumerable<MISAEntity> GetWithRange(int startPoint, int number);
+        IEnumerable<MISAEntity> GetById(int Id);
 
         /// <summary>
         /// Thêm mới một bản ghi vào database
@@ -50,6 +43,6 @@ namespace MISA.Common.Interfaces
         /// <param name="Guid">Id</param>
         /// <returns>Số bản ghi bị ảnh hưởng</returns>
         /// CreatedBy: TXTrinh (19/02/2021)
-        ServiceResult Delete(Guid Id);
+        ServiceResult Delete(int Id);
     }
 }

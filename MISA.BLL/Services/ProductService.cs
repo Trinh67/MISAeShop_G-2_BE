@@ -9,9 +9,9 @@ using System.Linq;
 
 namespace MISA.BLL
 {
-    public class ShopService : BaseService<Shop>, IShopService
+    public class ProductService : BaseService<Product>, IProductService
     {
-        public ShopService(IDbContext<Shop> dbContext) : base(dbContext)
+        public ProductService(IDbContext<Product> dbContext) : base(dbContext)
         {
 
         }

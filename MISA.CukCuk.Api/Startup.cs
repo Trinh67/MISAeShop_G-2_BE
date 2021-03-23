@@ -37,7 +37,7 @@ namespace MISA.CukCuk.Api
             //Cấu hình Dl
             services.AddScoped(typeof(IDbContext<>), typeof(DbContext<>));
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
-            services.AddScoped<IShopService, ShopService>();
+            services.AddScoped<IProductService, ProductService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MISA.CukCuk.Api", Version = "v1" });

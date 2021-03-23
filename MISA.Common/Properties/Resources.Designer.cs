@@ -70,20 +70,20 @@ namespace MISA.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mã cửa hàng.
+        ///   Looks up a localized string similar to Mã hàng hóa.
         /// </summary>
-        public static string ShopCode {
+        public static string ProductCode {
             get {
-                return ResourceManager.GetString("ShopCode", resourceCulture);
+                return ResourceManager.GetString("ProductCode", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tên cửa hàng.
+        ///   Looks up a localized string similar to Tên hàng hóa.
         /// </summary>
-        public static string ShopName {
+        public static string ProductName {
             get {
-                return ResourceManager.GetString("ShopName", resourceCulture);
+                return ResourceManager.GetString("ProductName", resourceCulture);
             }
         }
         
@@ -115,20 +115,11 @@ namespace MISA.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Số điện thoại đã tồn tại!.
+        ///   Looks up a localized string similar to Mã SKU đã tồn tại!.
         /// </summary>
-        public static string UserMsg_Duplicate_PhoneNumber {
+        public static string UserMsg_Duplicate_SKUCode {
             get {
-                return ResourceManager.GetString("UserMsg_Duplicate_PhoneNumber", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mã khách hàng đã tồn tại!.
-        /// </summary>
-        public static string UserMsg_Duplicate_ShopCode {
-            get {
-                return ResourceManager.GetString("UserMsg_Duplicate_ShopCode", resourceCulture);
+                return ResourceManager.GetString("UserMsg_Duplicate_SKUCode", resourceCulture);
             }
         }
         
@@ -160,29 +151,20 @@ namespace MISA.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Số điện thoại không được để trống!.
+        ///   Looks up a localized string similar to Tên hàng hóa không được để trống!.
         /// </summary>
-        public static string UserMsg_Require_PhoneNumber {
+        public static string UserMsg_Require_ProductName {
             get {
-                return ResourceManager.GetString("UserMsg_Require_PhoneNumber", resourceCulture);
+                return ResourceManager.GetString("UserMsg_Require_ProductName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mã cửa hàng không được để trống!.
+        ///   Looks up a localized string similar to Mã SKU không được để trống!.
         /// </summary>
-        public static string UserMsg_Require_ShopCode {
+        public static string UserMsg_Require_SKUCode {
             get {
-                return ResourceManager.GetString("UserMsg_Require_ShopCode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tên cửa hàng không được để trống!.
-        /// </summary>
-        public static string UserMsg_Require_ShopName {
-            get {
-                return ResourceManager.GetString("UserMsg_Require_ShopName", resourceCulture);
+                return ResourceManager.GetString("UserMsg_Require_SKUCode", resourceCulture);
             }
         }
         
