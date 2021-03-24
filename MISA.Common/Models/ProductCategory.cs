@@ -4,16 +4,16 @@ using System.Text;
 
 namespace MISA.Common.Models
 {
-    public class Unit
+    public class ProductCategory
     {
         /// <summary>
         /// Khóa chính
         /// </summary>
-        public int UnitID { get; set; }
+        public int ProductCategoryID { get; set; }
 
         /// <summary>
-        /// Tên đơn vị tính
+        /// Tên nhóm hàng hóa
         /// </summary>
-        public string UnitName { get; set; }
+        public string ProductCategoryName { get; set; }
     }
 }

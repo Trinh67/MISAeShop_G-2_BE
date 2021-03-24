@@ -38,9 +38,11 @@ namespace MISA.CukCuk.Api
             services.AddScoped(typeof(IDbContext<>), typeof(DbContext<>));
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IProductCategoryService, ProductCategoryService>();
+            services.AddScoped<IUnitService, UnitService>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MISA.CukCuk.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MISA.EShop.Api", Version = "v1" });
             });
         }
 
