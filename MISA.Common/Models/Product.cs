@@ -100,6 +100,10 @@ namespace MISA.Common.Models
         /// </summary>
         public int ParentID { get; set; }
 
+        /// <summary>
+        /// Tổng số bản ghi
+        /// </summary>
+        public int Total { get; set; }
         #endregion
     }
 }
