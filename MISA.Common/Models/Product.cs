@@ -18,9 +18,9 @@ namespace MISA.Common.Models
         /// <summary>
         /// Mã cửa hàng
         /// </summary>
-        [Required("Mã SKU", "Mã hàng hóa không được để trống!")]
-        [Duplicated("Mã SKU", "Mã hàng hóa đã tồn tại trên hệ thống!")]
-        [MaxLength("Mã SKU", 10, "Mã hàng hóa không dài quá 10 kí tự!")]
+        [Required("Mã SKU", "Mã SKU không được để trống!")]
+        [Duplicated("Mã SKU", "Mã SKU đã tồn tại trên hệ thống!")]
+        [MaxLength("Mã SKU", 10, "Mã SKU không dài quá 10 kí tự!")]
         public string SKUCode { get; set; }
 
         /// <summary>
