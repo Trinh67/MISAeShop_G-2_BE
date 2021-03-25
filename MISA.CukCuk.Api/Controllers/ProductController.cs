@@ -8,6 +8,8 @@ using System.Data;
 using System.Linq;
 using MISA.Common.Interfaces;
 using MISA.CukCuk.Api.Controllers;
+using MISA.Common.Entities;
+using MISA.Common.Enumrations;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -68,6 +70,26 @@ namespace MISA.EShop.API.Controllers
             if (Filter.txtStatus != null && Filter.txtStatus.ToString().Trim() == String.Empty) Filter.txtStatus = null;
 
             return _db.GetData(sqlCommand, new { Code = Filter.txtSKUCode, ProName = Filter.txtProductName, CategoryName = Filter.txtProductCategory, UnitName = Filter.txtUnit, Price = Filter.txtSalePrice, isShow = Filter.txtIsShow, Status = Filter.txtStatus,}, System.Data.CommandType.StoredProcedure);
+        }
+
+        [HttpPost]
+        [Route("DeleteList")]
+        public ServiceResult DeleteList(List<int> ListID)
+        {
+            var _serviceResult = new ServiceResult();
+            var sqlCommand = "DELETE FROM products WHERE ProductID IN (";
+            foreach(var id in ListID)
+            {
+               sqlCommand = sqlCommand + id + ',';
+            };
+            sqlCommand = sqlCommand.Substring(0, sqlCommand.Length - 1);
+            sqlCommand = sqlCommand + ')';
+            var rowsAffected = _db.GetData(sqlCommand, System.Data.CommandType.StoredProcedure);
+            _serviceResult.Data = rowsAffected;
+            _serviceResult.MISACode = (int)MISACode.Success;
+            _serviceResult.userMsg.Add(MISA.Common.Properties.Resources.UserMsg_Delete_Success);
+            
+            return _serviceResult;
         }
         #endregion
     }
