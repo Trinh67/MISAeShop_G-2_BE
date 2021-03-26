@@ -72,6 +72,11 @@ namespace MISA.EShop.API.Controllers
             return _db.GetData(sqlCommand, new { Code = Filter.txtSKUCode, ProName = Filter.txtProductName, CategoryName = Filter.txtProductCategory, UnitName = Filter.txtUnit, Price = Filter.txtSalePrice, isShow = Filter.txtIsShow, Status = Filter.txtStatus,}, System.Data.CommandType.StoredProcedure);
         }
 
+        /// <summary>
+        /// Xóa danh sách hàng hóa
+        /// </summary>
+        /// <param name="ListID">List ID</param>
+        /// <returns></returns>
         [HttpPost]
         [Route("DeleteList")]
         public ServiceResult DeleteList(List<int> ListID)
@@ -89,6 +94,25 @@ namespace MISA.EShop.API.Controllers
             _serviceResult.MISACode = (int)MISACode.Success;
             _serviceResult.userMsg.Add(MISA.Common.Properties.Resources.UserMsg_Delete_Success);
             
+            return _serviceResult;
+        }
+
+        /// <summary>
+        /// Sinh mã SKU tự động
+        /// </summary>
+        /// <param name="name">Tên hàng hóa</param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GenSKUCode")]
+        public ServiceResult GetSKU(string name)
+        {
+            var _serviceResult = new ServiceResult();
+            var sqlCommand = "Proc_GenProductSKU";
+
+            var code = _db.GetData(sqlCommand, new { productKey = name} ,System.Data.CommandType.StoredProcedure);
+            _serviceResult.Data = code;
+            _serviceResult.MISACode = (int)MISACode.Success;
+
             return _serviceResult;
         }
         #endregion

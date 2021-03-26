@@ -104,6 +104,10 @@ namespace MISA.Common.Models
         /// Tổng số bản ghi
         /// </summary>
         public int Total { get; set; }
+        /// <summary>
+        /// Mã SKU tự động
+        /// </summary>
+        public string SkuCodeGen { get; set; }
         #endregion
     }
 }
